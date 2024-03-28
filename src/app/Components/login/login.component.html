@@ -13,12 +13,12 @@
                 LOGIN
                 <div class="dash"></div>
             </div>
-            <div class="title title-unactive">
+            <div class="title title-unactive" [routerLink]="['/register']">
                 SIGNUP
             </div>
         </div>
         <form [formGroup]="loginForm">
-            <div class="input" >
+            <div class="input" style="margin-top: 5px;">
                 <span class="caption" [style.color]="isInputFocused ? '#A03037' : 'black'">Email Id</span>
                 <div class="email" [class.focus]="isInputFocused">
                     <input type="text" (focus)="onFocus()" (blur)="onBlur()" formControlName="email">
@@ -51,9 +51,9 @@
                         <p class="error" *ngIf="loginForm.get('password')?.hasError('pattern')">
                             Password must be valid.
                         </p>
-                    </div>
+                    </div> 
                     <div >
-                        <button mat-button disabled class="forget-btn">Forget Password?</button>
+                        <button mat-button disabled class="forget-btn" [routerLink]="['/forget-password']">Forget Password?</button>
                     </div>
                 </div>
             </div>
