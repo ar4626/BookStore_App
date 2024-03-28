@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="main">
+    <div class="container">
+        <div class="logo-box">
+            <img class="logo"
+                src="https://res.cloudinary.com/dxycwp9mh/image/upload/v1711522057/BookStore/loginLogo.png"
+                alt="login-image">
+            <div class="heading">Online Book Shopping</div>
+        </div>
+    </div>
+    <div class="login-form">
+        <div class="head">
+            <div class="title">
+                LOGIN
+                <div class="dash"></div>
+            </div>
+            <div class="title title-unactive">
+                SIGNUP
+            </div>
+        </div>
+        <form action="">
+            <div class="input">
+                <span class="caption">Email Id</span>
+                <div class="email">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="input">
+                <span class="caption">Password</span>
+                <div class="pass">
+                    <input [type]="isPasswordVisible ? 'password' : 'text'">
+                    
+                </div>
+                <div style="display: flex; justify-content: end;">
+                    <button mat-button disabled class="forget-btn">Forget Password?</button>
+                </div>
+            </div>
+            <button class="login-btn ">Login</button>
+            <div style="display: flex; justify-content: center;">
+                <span style="color: #dddddd;">------------------ &nbsp;&nbsp; <b
+                        style="font-size: 14px; color: black;">OR</b> &nbsp;&nbsp; -------------------</span>
+            </div>
+            <div class="login-option">
+                <button class=""
+                    style="background: #4266B2 0% 0% no-repeat padding-box; color: white;">Facebook</button>
+                <button class="" style="border: 1px solid #E4E4E4;">Google</button>
+            </div>
+        </form>
+    </div>
+</div>
