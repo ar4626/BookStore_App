@@ -21,7 +21,25 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  isInputFocused: boolean = false;
+  isPasswordFocused: boolean = false;
   isPasswordVisible: boolean = false;
+
+  onFocus(): void {
+    this.isInputFocused = true;
+  }
+
+  onBlur(): void {
+    this.isInputFocused = false;
+  }
+
+  onPasswordFocus(): void {
+    this.isPasswordFocused = true;
+  }
+
+  onPasswordBlur(): void {
+    this.isPasswordFocused = false;
+  }
 
   toggleVisibility(): void {
     this.isPasswordVisible = !this.isPasswordVisible;
