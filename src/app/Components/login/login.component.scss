@@ -77,7 +77,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 28px 28px 0px 28px;
-    box-sizing: border-box;
+    // box-sizing: border-box;
+    cursor:pointer
 }
 
 .title {
@@ -87,12 +88,14 @@
     font-size: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    // box-sizing: border-box;
 }
 
 .title-unactive {
     color: #878787;
+    margin-top: -10px;
 }
 
 .dash {

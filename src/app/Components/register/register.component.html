@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="main">
+    <div class="container">
+        <div class="logo-box">
+            <img class="logo"
+                src="https://res.cloudinary.com/dxycwp9mh/image/upload/v1711522057/BookStore/loginLogo.png"
+                alt="login-image">
+            <div class="heading">Online Book Shopping</div>
+        </div>
+    </div>
+    <div class="login-form">
+        <div class="head">
+            <div class="title title-unactive" [routerLink]="['/login']">
+                LOGIN
+            </div>
+            <div class="title" >
+                SIGNUP
+                <div class="dash"></div>
+            </div>
+        </div>
+        <form [formGroup]="loginForm">
+            <div class="input" style="margin-top: 5px;">
+                <span class="caption" [style.color]="isInputFocused ? '#A03037' : 'black'">Email Id</span>
+                <div class="email" [class.focus]="isInputFocused">
+                    <input type="text" (focus)="onFocus()" (blur)="onBlur()" formControlName="email">
+                </div>
+                <div>
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('required')">
+                        Enter your Email.
+                    </p>
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('email')">
+                        Email must be valid.
+                    </p>
+                </div>
+            </div>
+            <div class="input">
+                <span class="caption" [style.color]="isPasswordFocused ? '#A03037' : 'black'">Password</span>
+                <div class="pass" [class.focus]="isPasswordFocused">
+                    <input [type]="isPasswordVisible ? 'text' : 'password'" (focus)="onPasswordFocus()" (blur)="onPasswordBlur()" formControlName="password">
+                    <span 
+                        class="material-symbols-outlined" 
+                        style="color: #9D9D9D; margin-right: 10px; font-size: 18px;" 
+                        (click)="toggleVisibility()">
+                        {{ isPasswordVisible ? 'visibility' : 'visibility_off' }}
+                    </span>
+                </div>
+                <div style="display: flex; justify-content: space-between; ">
+                    <div>
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('required')">
+                            You must enter a password.
+                        </p>
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('pattern')">
+                            Password must be valid.
+                        </p>
+                    </div> 
+                    <div >
+                        <button mat-button disabled class="forget-btn" [routerLink]="['/forget-password']">Forget Password?</button>
+                    </div>
+                </div>
+            </div>
+            <button class="login-btn ">Login</button>
+            <div style="display: flex; justify-content: center; ">
+                <span style="color: #dddddd;">------------------ &nbsp;&nbsp; <b
+                        style="font-size: 14px; color: black;">OR</b> &nbsp;&nbsp; -------------------</span>
+            </div>
+            <div class="login-option">
+                <button class=""
+                    style="background: #4266B2 0% 0% no-repeat padding-box; color: white;">Facebook</button>
+                <button class="" style="border: 1px solid #E4E4E4;">Google</button>
+            </div>
+        </form>
+    </div>
+</div>
