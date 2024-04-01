@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -8,7 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
   standalone: true,
   imports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
@@ -16,7 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 export class DashboardComponent {
   name : string = 'Ankit';
   profileMenu : boolean = true;
-  count : any = 2;
+  count : any = 1;
 
   toggleProfileMenu(): void {
     this.profileMenu = !this.profileMenu;
