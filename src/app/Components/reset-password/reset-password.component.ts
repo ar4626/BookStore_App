@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -10,12 +10,19 @@ import { Router } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.scss'
 })
 export class ResetPasswordComponent {
-  forgetForm !: FormGroup;
+  isPasswordVisible: boolean = false;
+
+  toggleVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  resetForm !: FormGroup;
 
   constructor(
     private formbuilder : FormBuilder,
@@ -23,9 +30,10 @@ export class ResetPasswordComponent {
   ){}
 
   ngOnInit(): void {
-    this.forgetForm = this.formbuilder.group(
+    this.resetForm = this.formbuilder.group(
       {
-        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]],
+        confirmPassword: ['', [Validators.required, Validators.pattern("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")]],
       }
     )
   }
