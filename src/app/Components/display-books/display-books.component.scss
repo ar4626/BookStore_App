@@ -1,7 +1,7 @@
 .main {
     padding: 0px 160px;
     box-sizing: border-box;
-    background-color: red;
+    // background-color: red;
     width: 100%;
 }
 
@@ -94,8 +94,9 @@ option:before {
 
 
 .display{
-    background-color: tan;
+    // background-color: tan;
     width: 100%;
     display: flex;
-    
+    flex-wrap: wrap;
+    // margin: 0px -28px;
 }

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="upper">
+        <img [src]="book.book_image" alt="BookImage">
+    </div>
+    <div class="lower">
+        <p class="title">{{title}}</p>
+        <p class="author">by {{author}}</p>
+        <div class="rating">
+                {{book.rating}} 
+                <span class="material-symbols-outlined md-light">star</span>
+        </div>
+        <div class="price">
+            <span class="discount">
+                Rs {{book.discount_price}}
+            </span>
+            <span class="actual"[ngStyle]="{'text-decoration': 'line-through'}">
+                Rs {{book.book_price}}
+            </span>
+        </div>
+    </div>
+</div>
