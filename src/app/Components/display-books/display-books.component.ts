@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './display-books.component.scss'
 })
 export class DisplayBooksComponent {
-
+  count : any = 128;
 }
