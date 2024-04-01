@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../Services/user/user.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-login',
@@ -51,7 +53,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formbuilder : FormBuilder,
-    private router: Router
+    private router: Router,
+    private userService : UserService
   ){}
 
   ngOnInit(): void {
@@ -62,4 +65,34 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+
+  //API Integration 
+  loginUser(): void{
+    const requestData = {
+      email : this.loginForm.value.email,
+      password : this.loginForm.value.password
+    }
+
+    this.userService.login(requestData).subscribe(
+      (response:any)=>{
+        console.log("Login successful", response.data);
+        localStorage.setItem('token', response.data.token);
+
+        //set timmer
+        setTimeout(() => {
+          this.deleteToken();
+        }, 10 * 60 * 1000); // 10 minutes in milliseconds
+      },
+      (error: any) => {
+        console.log("Login Failed",error.message);
+
+      }
+    )
+  }
+
+  // Function to delete token from local storage
+  deleteToken(): void {
+    localStorage.removeItem('token');
+  }
+
 }
