@@ -13,21 +13,29 @@
                 LOGIN
                 <div class="dash"></div>
             </div>
-            <div class="title title-unactive">
+            <div class="title title-unactive" [routerLink]="['/register']">
                 SIGNUP
             </div>
         </div>
-        <form action="">
-            <div class="input" >
+        <form [formGroup]="loginForm">
+            <div class="input" style="margin-top: 5px;">
                 <span class="caption" [style.color]="isInputFocused ? '#A03037' : 'black'">Email Id</span>
                 <div class="email" [class.focus]="isInputFocused">
-                    <input type="text" (focus)="onFocus()" (blur)="onBlur()">
+                    <input type="text" (focus)="onFocus()" (blur)="onBlur()" formControlName="email">
+                </div>
+                <div>
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('required')">
+                        Enter your Email.
+                    </p>
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('email')">
+                        Email must be valid.
+                    </p>
                 </div>
             </div>
             <div class="input">
                 <span class="caption" [style.color]="isPasswordFocused ? '#A03037' : 'black'">Password</span>
                 <div class="pass" [class.focus]="isPasswordFocused">
-                    <input [type]="isPasswordVisible ? 'text' : 'password'" (focus)="onPasswordFocus()" (blur)="onPasswordBlur()">
+                    <input [type]="isPasswordVisible ? 'text' : 'password'" (focus)="onPasswordFocus()" (blur)="onPasswordBlur()" formControlName="password">
                     <span 
                         class="material-symbols-outlined" 
                         style="color: #9D9D9D; margin-right: 10px; font-size: 18px;" 
@@ -35,8 +43,18 @@
                         {{ isPasswordVisible ? 'visibility' : 'visibility_off' }}
                     </span>
                 </div>
-                <div style="display: flex; justify-content: end;">
-                    <button mat-button disabled class="forget-btn">Forget Password?</button>
+                <div style="display: flex; justify-content: space-between; ">
+                    <div>
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('required')">
+                            You must enter a password.
+                        </p>
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('pattern')">
+                            Password must be valid.
+                        </p>
+                    </div> 
+                    <div >
+                        <button mat-button disabled class="forget-btn" [routerLink]="['/forget-password']">Forget Password?</button>
+                    </div>
                 </div>
             </div>
             <button class="login-btn ">Login</button>
