@@ -95,8 +95,10 @@ option:before {
 
 .display{
     // background-color: tan;
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-wrap: wrap;
-    // margin: 0px -28px;
+    justify-content: space-between;
+    // margin: 0px -14px;
+    box-sizing: border-box;
 }
