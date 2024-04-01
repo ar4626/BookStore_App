@@ -52,8 +52,8 @@
                             Password must be valid.
                         </p>
                     </div> 
-                    <div >
-                        <button mat-button disabled class="forget-btn" [routerLink]="['/forget-password']">Forget Password?</button>
+                    <div [routerLink]="['/forget-password']" style="cursor: pointer;">
+                        <button mat-button disabled class="forget-btn" >Forget Password?</button>
                     </div>
                 </div>
             </div>
