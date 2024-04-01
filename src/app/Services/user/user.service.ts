@@ -51,6 +51,6 @@ export class UserService {
         'Authorization':'Bearer ' + token 
       })
     }
-    return this.httpService.postServiceReset('https://localhost:44352/api/User/ResetPassword',requestData,true,header)
+    return this.httpService.postServiceReset('https://localhost:44362/api/User/ResetPassword',requestData,true,header)
   }
 }
