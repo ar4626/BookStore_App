@@ -15,7 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class DashboardComponent {
   name : string = 'Ankit';
-  profileMenu : boolean = false;
+  profileMenu : boolean = true;
+  count : any = 2;
 
   toggleProfileMenu(): void {
     this.profileMenu = !this.profileMenu;
