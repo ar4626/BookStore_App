@@ -14,5 +14,10 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  name : string = 'Ankit';
+  profileMenu : boolean = false;
 
+  toggleProfileMenu(): void {
+    this.profileMenu = !this.profileMenu;
+}
 }
