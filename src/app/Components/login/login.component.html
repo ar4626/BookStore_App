@@ -24,10 +24,10 @@
                     <input type="text" (focus)="onFocus()" (blur)="onBlur()" formControlName="email">
                 </div>
                 <div>
-                    <p class="error" *ngIf="loginForm.get('email')?.hasError('required')">
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
                         Enter your Email.
                     </p>
-                    <p class="error" *ngIf="loginForm.get('email')?.hasError('email')">
+                    <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
                         Email must be valid.
                     </p>
                 </div>
@@ -45,10 +45,10 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; ">
                     <div>
-                        <p class="error" *ngIf="loginForm.get('password')?.hasError('required')">
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('required')&& loginForm.get('password')?.touched">
                             You must enter a password.
                         </p>
-                        <p class="error" *ngIf="loginForm.get('password')?.hasError('pattern')">
+                        <p class="error" *ngIf="loginForm.get('password')?.hasError('pattern')&& loginForm.get('password')?.touched">
                             Password must be valid.
                         </p>
                     </div> 

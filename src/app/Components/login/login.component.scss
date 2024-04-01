@@ -3,7 +3,7 @@
     height: 100vh;
     margin: 0px;
     padding: 0px;
-    background-color: #777777;
+    background-color: #b0b0b0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 28px 28px 0px 28px;
-    box-sizing: border-box;
+    // box-sizing: border-box;
+    cursor:pointer
 }
 
 .title {
@@ -87,12 +88,14 @@
     font-size: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    // box-sizing: border-box;
 }
 
 .title-unactive {
     color: #878787;
+    margin-top: -10px;
 }
 
 .dash {
@@ -125,6 +128,7 @@ form {
 .input {
     display: flex;
     flex-direction: column;
+    height: 71.5px;
 }
 
 .email.focus {
@@ -133,7 +137,7 @@ form {
 
 .email {
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 1px 8px #00000021;
+    // box-shadow: 0px 1px 8px #00000021;
     border: 2px solid #E4E4E4;
     border-radius: 3px;
     opacity: 1;
@@ -147,7 +151,7 @@ form {
     display: flex;
     align-items: center;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 1px 8px #00000021;
+    // box-shadow: 0px 1px 8px #00000021;
     border: 2px solid #E4E4E4;
     border-radius: 3px;
     opacity: 1;

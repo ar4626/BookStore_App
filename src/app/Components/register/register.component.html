@@ -1,1 +1,84 @@
-<p>register works!</p>
+<div class="main">
+    <div class="container">
+        <div class="logo-box">
+            <img class="logo"
+                src="https://res.cloudinary.com/dxycwp9mh/image/upload/v1711522057/BookStore/loginLogo.png"
+                alt="login-image">
+            <div class="heading">Online Book Shopping</div>
+        </div>
+    </div>
+    <div class="register-form">
+        <div class="head">
+            <div class="title title-unactive" [routerLink]="['/login']">
+                LOGIN
+            </div>
+            <div class="title">
+                SIGNUP
+                <div class="dash"></div>
+            </div>
+        </div>
+        <form [formGroup]="signupForm">
+            <div class="input">
+                <span class="caption">Full Name</span>
+                <div class="email"  [ngClass]="{ 'error-border': signupForm.get('name')?.invalid && signupForm.get('name')?.touched }">
+                    <input type="text" formControlName="name" >
+                </div>
+                <div>
+                    <p class="error" *ngIf="signupForm.get('name')?.hasError('required')&& signupForm.get('name')?.touched">
+                        Enter full name.
+                    </p>
+                    <!-- <p class="error" *ngIf="loginForm.get('name')?.hasError('pattern')">
+                        Name should start from capital letter
+                    </p> -->
+                </div>
+            </div>
+            <div class="input">
+                <span class="caption">Email Id</span>
+                <div class="email"  [ngClass]="{ 'error-border': signupForm.get('email')?.invalid && signupForm.get('email')?.touched }">
+                    <input type="text" formControlName="email">
+                </div>
+                <div>
+                    <p class="error" *ngIf="signupForm.get('email')?.hasError('required')&& signupForm.get('email')?.touched">
+                        Enter your email.
+                    </p>
+                    <p class="error" *ngIf="signupForm.get('email')?.hasError('email')&& signupForm.get('email')?.touched">
+                        Email must be valid.
+                    </p>
+                </div>
+            </div>
+            <div class="input">
+                <span class="caption">Password</span>
+                <div class="pass"  [ngClass]="{ 'error-border': signupForm.get('password')?.invalid && signupForm.get('password')?.touched }">
+                    <input [type]="isPasswordVisible ? 'text' : 'password'" formControlName="password">
+                    <span class="material-symbols-outlined" style="color: #9D9D9D; margin-right: 10px; font-size: 18px; cursor: pointer;"
+                        (click)="toggleVisibility()">
+                        {{ isPasswordVisible ? 'visibility' : 'visibility_off' }}
+                    </span>
+                </div>
+                <div>
+                    <p class="error" *ngIf="signupForm.get('password')?.hasError('required')&& signupForm.get('password')?.touched">
+                        You must enter a password.
+                    </p>
+                    <p class="error" *ngIf="signupForm.get('password')?.hasError('pattern')&& signupForm.get('password')?.touched">
+                        Password must be valid.
+                    </p>
+                </div>
+            </div>
+            <div class="input" >
+                <span class="caption">Mobile Number</span>
+                <div class="email" [ngClass]="{ 'error-border': signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched }">
+                    <input type="text" formControlName="mobile">
+                </div>
+                <div>
+                    <p class="error" *ngIf="signupForm.get('mobile')?.hasError('required')&& signupForm.get('mobile')?.touched">
+                        Enter your mobile no.
+                    </p>
+                    <p class="error" *ngIf="signupForm.get('mobile')?.hasError('minLength')&& signupForm.get('mobile')?.touched">
+                        Enter valid mobile number.
+                    </p>
+                </div>
+            </div>
+            <button class="signup-btn">Signup</button> 
+        </form>
+    </div>
+</div>
