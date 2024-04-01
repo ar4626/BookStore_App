@@ -1,0 +1,108 @@
+.header {
+    height: 60px;
+    background-color: #A03037;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 160px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo>h1 {
+    margin: 0px 0px 0px 5px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    opacity: 1;
+    font-family: "Roboto", sans-serif;
+    // font-weight: 300;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.search-bar {
+    height: 33px;
+    background: #FCFCFC 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    width: 60%;
+}
+
+.search-bar>input {
+    height: 27px;
+    border: none;
+
+}
+
+.options {
+    display: flex;
+    height: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid #8F2B2F;
+    border-right: 2px solid #8F2B2F;
+    padding: 0px 20px;
+    position: relative;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    // border-left: 2px solid #8F2B2F;
+    border-right: 2px solid #8F2B2F;
+    padding: 0px 20px;
+}
+
+.caption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.45px;
+    margin-top: -15px;
+    color: #FFFFFF;
+    opacity: 1;
+    font-family: "Roboto", sans-serif;
+    // font-weight: 300;
+    font-style: normal;
+    font-size: 10px;
+}
+
+.dash {
+    height: 3px;
+    width: 160%;
+    background-color: white;
+    margin-left: -17px;
+    margin-top: 4px;
+    border-radius: 2px;
+    
+}
+
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    width: 200px;
+    height: 182px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
