@@ -1,0 +1,249 @@
+.main {
+    padding: 0px 160px;
+    box-sizing: border-box;
+    // background-color: red;
+    width: 100%;
+    // height: 95vh;
+    // overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: white;
+    width: 100%;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.home {
+    color: #9D9D9D;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.book-title {
+    margin-left: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+}
+
+.container {
+    display: flex;
+    // background-color: wheat;
+}
+
+.left {
+    width: 37%;
+    margin-left: 10xp;
+    box-sizing: border-box;
+}
+
+.image {
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    margin: 23px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    // width: 100%;
+    height: 410px;
+}
+
+.btn {
+    padding: 20px 0px;
+    margin: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn>button {
+    border-radius: 2px;
+    opacity: 1;
+    border: none;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    // font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    height: 40px;
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    width: 65%;
+    height: 80vh;
+    overflow-y: scroll;
+
+    // border: 1px solid blue;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.details {
+    // background-color: white;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 28px;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    padding: 4px 0px;
+}
+
+.author {
+    margin: 5px 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    // font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    color: #878787;
+}
+
+.rating {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2px;
+    background-color: #388E3C;
+    height: 100%;
+    width: 55px;
+    font-size: 14px;
+    color: #FFFFFF;
+    border-radius: 2px;
+}
+
+.rating>span {
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+    justify-content: center;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.price {
+    margin: 18px 0px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    .discount {
+        font-size: 30px;
+        font-weight: 600;
+        margin-right: 1%;
+    }
+
+    .actual {
+        color: #878787;
+        font-size: 18px;
+    }
+}
+
+hr {
+    color: #d4d0d0;
+}
+
+.desc {
+    margin: 40px 0px;
+}
+
+.head {
+    color: #878787;
+    opacity: 1;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.description {
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    color: #373434;
+    opacity: 1;
+}
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.feedback-heading {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    margin: 15px 0px;
+}
+
+.feedback-menu {
+    // height: 192px;
+    width: 95%;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 0.63;
+    margin: 20px 0px;
+    padding: 15px;
+}
+
+.feedback-menu>h2 {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.star {
+    margin-left: -3px;
+    // padding: 10px 0px;
+}
+
+.star>span {
+    margin: 10px 7px;
+}
+
+.textarea {
+    height: 63px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    padding: 10px;
+}
+
+.textarea>p {
+    margin-bottom: 20px;
+    color: #707070;
+    opacity: 0.18;
+}
