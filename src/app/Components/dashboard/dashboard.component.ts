@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { DisplayBooksComponent } from '../display-books/display-books.component';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -16,6 +16,7 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
     DisplayBooksComponent,
     RouterOutlet,
     RouterModule,
+    RouterLink
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
