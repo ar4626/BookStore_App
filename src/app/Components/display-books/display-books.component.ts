@@ -213,13 +213,13 @@ export class DisplayBooksComponent {
   }
 
   ]
-
-
+  pageSize : number = 12;
+  totalPages: number = this.books.length/this.pageSize;
   activePageNumber: number = 1;
 
   shiftActive(direction: string) {
     const totalBooks = this.books.length;
-    const pageSize = 12;
+    const pageSize = this.pageSize;
 
     if (direction === 'next') {
       if (this.activePageNumber < Math.ceil(totalBooks / pageSize)) {
@@ -236,7 +236,7 @@ export class DisplayBooksComponent {
     } else if (direction === 'prev') {
       if (this.activePageNumber > 1) {
         this.activePageNumber--;
-        if (this.start <= 0) {
+        if (this.start-pageSize < 1) {
           this.start = 0;
           this.end = pageSize;
         }
@@ -245,6 +245,6 @@ export class DisplayBooksComponent {
           this.end -= pageSize;
         }
       }
-    }
+    } 
   }
 }

@@ -15,7 +15,7 @@
     </div>
     <div class="display">
         <ng-container *ngFor="let book of books.slice(start,end)">
-            <app-book-card [book]="book"></app-book-card>
+            <app-book-card [book]="book" ></app-book-card>
         </ng-container>
     </div>
     <div class="pagenation">
@@ -33,6 +33,11 @@
             <div class="number" [class.number-active]="activePageNumber === 6">6</div>
             <div class="number">...</div>
             <div class="number">10</div>
+            <!-- <ng-container *ngFor="let pageNumber of totalPages ; let i = index;" >
+                <div class="number" [class.number-active]="activePageNumber === pageNumber" >
+                  {{ pageNumber }}
+                </div>
+              </ng-container> -->
             <button class="arrow" (click)="shiftActive('next')">
                 <span class="material-symbols-outlined " style="font-size: 10px; font-weight: 500;">
                     arrow_forward_ios

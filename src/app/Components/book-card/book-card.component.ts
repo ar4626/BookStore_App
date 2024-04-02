@@ -37,8 +37,8 @@ export class BookCardComponent {
       this.title = this.book.bookName;
     }
 
-    if (this.book && this.book.author.length > 53) {
-      this.author = this.book.author.substring(0, 53) + "...";
+    if (this.book && this.book.author.length > 23) {
+      this.author = this.book.author.substring(0, 23) + "...";
     } else if (this.book) {
       this.author = this.book.author;
     }
