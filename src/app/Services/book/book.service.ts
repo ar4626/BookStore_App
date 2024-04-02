@@ -24,4 +24,14 @@ export class BookService {
     return this.httpService.getService('https://localhost:44362/api/Book/GetAllBook',false,header);
   }
 
+  getABook(reqData : any){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        // 'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('https://localhost:44362/api/Book/GetABook?id='+reqData,false,header);
+  }
+
 }

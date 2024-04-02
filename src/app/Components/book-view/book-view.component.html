@@ -1,12 +1,12 @@
 <div class="main">
     <div class="header">
         <div class="home" [routerLink]="['/home']">Home / </div>
-        <div class="book-title">Book</div>
+        <div class="book-title">{{book.bookName}}</div>
     </div>
     <div class="container">
         <div class="left">
             <div class="image">
-                <img src={{book.book_image}} alt="">
+                <img src={{book.image}} alt="">
             </div>
             <div class="btn">
                 <button style="background-color: #A03037;">
@@ -23,22 +23,23 @@
         </div>
         <div class="right">
             <div class="details">
-                <div class="title">
+                <p class="title">
                     {{book.bookName}}
-                </div>
+                </p>
                 <div class="author">
                     by {{book.author}}
                 </div>
                 <div class="rating">
-                    {{book.rating}}
+                    <!-- {{book.rating}} -->
+                    4.5
                     <span class="material-symbols-outlined md-light">star</span>
                 </div>
                 <div class="price">
                     <span class="discount">
-                        Rs {{book.discount_price}}
+                        Rs {{book.discount}}
                     </span>
                     <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
-                        Rs {{book.book_price}}
+                        Rs {{book.amount}}
                     </span>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                     Book Details
                 </div>
                 <div class="description">
-                    {{book.description}}
+                    {{book.bookDesc}}
                 </div>
             </div>
             <hr />

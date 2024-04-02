@@ -263,7 +263,6 @@ export class DisplayBooksComponent {
   }
 
   display(): any{
-    console.log("display called");
     this.bookService.getAllBooks().subscribe(
       (response:any)=>{
         this.books = response.data;
