@@ -7,6 +7,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { DisplayBooksComponent } from './Components/display-books/display-books.component';
 import { BookCardComponent } from './Components/book-card/book-card.component';
 import { BookViewComponent } from './Components/book-view/book-view.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +39,9 @@ export const routes: Routes = [
             },
             {
                 path: 'book/:id', component: BookViewComponent
+            },
+            {
+                path: 'cart', component: CartComponent
             },
             
         ]

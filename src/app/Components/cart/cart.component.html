@@ -1,0 +1,215 @@
+<div class="main">
+    <div class="header">
+        <div class="home" [routerLink]="['/home']">Home / </div>
+        <div class="book-title">&nbsp; My cart</div>
+    </div>
+    <div class="container">
+        <div class="cart">
+            <div class="head">
+                <h1>My Cart ({{count}})</h1>
+                <div class="address-box">
+                    <div>
+                        <span class="material-symbols-outlined" style="color:#A03037 ;">
+                            pin_drop
+                        </span>
+                        &nbsp; Use current Location
+                    </div>
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+            <div class="details">
+                <div *ngFor="let book of books">
+                    <div class="book">
+                        <div class="image">
+                            <img src="{{book.book_image}}" alt="">
+                        </div>
+                        <div class="bookDetails">
+                            <h3>{{book.bookName}}</h3>
+                            <p>by {{book.author}}</p>
+                            <div class="price">
+                                <span class="discount">
+                                    Rs {{book.discount_price}}
+                                </span>
+                                <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
+                                    Rs {{book.book_price}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-count">
+                        <div class="count">
+                            <button (click)="decrement()">-</button>
+                            <div class="box">{{ quantity }}</div>
+                            <button (click)="increment()">+</button>
+                        </div>
+                        <button class="remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="placeOrder" style="height: 35px;">
+                <button (click)="display = !display" [style.display]="display ? 'flex' : 'none'">PLACE ORDER</button>
+            </div>
+        </div>
+    </div>
+    <div class="address">
+        <div *ngIf="display; then address else inputAddress"></div>
+        <ng-template #address>
+            <div class="head" >
+                <h1 style="margin: 0px; font-size: 15px;">Address Details</h1>
+            </div>
+        </ng-template>
+        <ng-template #inputAddress >
+            <div class="address-input" >
+                <h1>Customer Details</h1>
+                <form action="">
+                    <div class="row">
+                        <div class="input" style="margin-top: 5px;">
+                            <span class="caption" >Full Name</span>
+                            <div class="email" >
+                                <input type="text" formControlName="email">
+                            </div>
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                        <div class="input" style="margin-top: 5px; margin-left: 10px;">
+                            <span class="caption" >Mobile Number</span>
+                            <div class="email" >
+                                <input type="text" formControlName="email">
+                            </div>
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="div">
+                        <div class="textarea" style="margin-top: 5px;">
+                            <span class="caption" >City/Town</span>
+                            <div class="email">
+                                <textarea formControlName="name"></textarea>
+                            </div>
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input" style="margin-top: 5px;">
+                            <span class="caption" >City/Town</span>
+                            <div class="email" >
+                                <input type="text" formControlName="email">
+                            </div>
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                        <div class="input" style="margin-top: 5px; margin-left: 10px;">
+                            <span class="caption" >State</span>
+                            <div class="email" >
+                                <input type="text" formControlName="email">
+                            </div>
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="div">
+                        <div class="textarea" style="margin-top: 5px;">
+                            <span class="caption" >Type</span>
+                            <div class="email" style="border: none;">
+                                <div class="radio-buttons">
+                                    <label>
+                                        <input type="radio" formControlName="name" value="option1"> Home
+                                    </label>
+                                    <label>
+                                        <input type="radio" formControlName="name" value="option2"> Work
+                                    </label>
+                                    <label>
+                                        <input type="radio" formControlName="name" value="option3"> Other
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- <div>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('required')&& loginForm.get('email')?.touched">
+                                    Enter your Email.
+                                </p>
+                                <p class="error" *ngIf="loginForm.get('email')?.hasError('email')&& loginForm.get('email')?.touched">
+                                    Email must be valid.
+                                </p>
+                            </div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="placeOrder" style="height: 35px;">
+                <button (click)="orderPortal = !orderPortal" [style.display]="orderPortal ? 'flex' : 'none'">CONTINUE</button>
+            </div>
+        </ng-template>
+    </div>
+    <div class="order" style="margin-bottom: 50px;">
+        <div *ngIf="orderPortal; then order else orderSummery"></div>
+        <ng-template #order>
+            <div class="head" >
+                <h1>Order Summery</h1>
+            </div>
+        </ng-template>
+        <ng-template #orderSummery>
+            <div class="order-summery" >
+                <h1>Order Summery</h1>
+                <div *ngFor="let book of books">
+                    <div class="book">
+                        <div class="image">
+                            <img src="{{book.book_image}}" alt="">
+                        </div>
+                        <div class="bookDetails">
+                            <h3>{{book.bookName}}</h3>
+                            <p>by {{book.author}}</p>
+                            <div class="price">
+                                <span class="discount">
+                                    Rs {{book.discount_price}}
+                                </span>
+                                <!-- <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
+                                    Rs {{book.book_price}}
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="placeOrder" style="height: 35px;">
+                <button>CHECKOUT</button>
+            </div>
+        </ng-template>
+    </div>
+</div>
+<div class="footer">
+    <p>Copyright © 2020, Bookstore Private Limited. All Rights Reserved</p>
+</div>

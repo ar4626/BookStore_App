@@ -41,4 +41,9 @@ export class DashboardComponent {
       this.profileMenuSignin = !this.profileMenuSignin
     }
   }
+
+  deleteToken(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+  }
 } 
