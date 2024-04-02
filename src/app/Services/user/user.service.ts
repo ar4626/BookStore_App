@@ -37,7 +37,7 @@ export class UserService {
   forgetPassword(requestData: any){
     let header = {
       headers : new HttpHeaders({
-        'content-type': 'application/json',
+        'content-type': 'application/json', 
         // 'Authorization': 'token' 
       })
     }

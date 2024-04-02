@@ -1,20 +1,21 @@
 <div class="container book-card">
     <div class="upper">
-        <img [src]="book.book_image" alt="BookImage">
+        <img [src]="book.image" alt="BookImage">
     </div>
     <div class="lower">
         <p class="title">{{title}}</p>
         <p class="author">by {{author}}</p>
         <div class="rating">
-                {{book.rating}} 
+                <!-- {{book.rating}} -->
+                4.5 
                 <span class="material-symbols-outlined md-light">star</span>
         </div>
         <div class="price">
             <span class="discount">
-                Rs {{book.discount_price}}
+                Rs {{book.discount}}
             </span>
             <span class="actual"[ngStyle]="{'text-decoration': 'line-through'}">
-                Rs {{book.book_price}}
+                Rs {{book.amount}}
             </span>
         </div>
     </div>

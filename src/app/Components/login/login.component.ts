@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
       (response:any)=>{
         console.log("Login successful", response.data);
         localStorage.setItem('token', response.data.token);
-
+        this.router.navigateByUrl('/home')
         //set timmer
         setTimeout(() => {
           this.deleteToken();
