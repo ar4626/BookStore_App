@@ -31,10 +31,10 @@ export const routes: Routes = [
         path: 'home', component: DashboardComponent,
         children:[
             {
-                path: '', redirectTo:'home/display', pathMatch:'full'
+                path: '', redirectTo:'/home/books', pathMatch:'full'
             },
             {
-                path: 'display', component: DisplayBooksComponent
+                path: 'books', component: DisplayBooksComponent
             },
             {
                 path: 'book', component: BookViewComponent

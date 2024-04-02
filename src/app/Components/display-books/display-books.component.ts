@@ -13,9 +13,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './display-books.component.scss'
 })
 export class DisplayBooksComponent {
-  count: any = 128;
-  start: any = 0;
-  end: any = 12;
   books: any = [{
     "bookId": 6,
     "bookName": "You Can",
@@ -213,6 +210,9 @@ export class DisplayBooksComponent {
   }
 
   ]
+  count: any = this.books.length;
+  start: any = 0;
+  end: any = 12;
   pageSize : number = 12;
   totalPages: number = this.books.length/this.pageSize;
   activePageNumber: number = 1;
