@@ -21,7 +21,7 @@
                 <button mat-icon-button class="search-icon" aria-label="Example icon-button with share icon">
                     <span class="material-symbols-outlined" style="color: white;">
                         person
-                    </span> 
+                    </span>
                 </button>
                 <span class="caption">{{ name === null ? 'Profile' : name }}</span>
                 <div class="dash" [style.display]="profileMenu ? 'none' : 'flex'">
@@ -31,21 +31,24 @@
                         Hello {{name}},
                     </div>
                     <div class="user profile-option">
-                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: #878787; font-size: 12px; display: flex; align-items: center;">
                             person
-                        </span> 
+                        </span>
                         <div class="title">Profile</div>
                     </div>
                     <div class="order profile-option">
-                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: #878787; font-size: 12px; display: flex; align-items: center;">
                             orders
-                        </span> 
+                        </span>
                         <div class="title">My Orders</div>
                     </div>
                     <div class="wishlist profile-option">
-                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: #878787; font-size: 12px; display: flex; align-items: center;">
                             favorite
-                        </span> 
+                        </span>
                         <div class="title">My Wishlist</div>
                     </div>
                     <button class="logout-btn" (click)="deleteToken()">Logout</button>
@@ -63,31 +66,35 @@
                     <button class="logout-btn" [routerLink]="['/login']">LOGIN/SIGNUP</button>
                     <hr style="width: 100%;">
                     <div class="order profile-option">
-                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: #878787; font-size: 12px; display: flex; align-items: center;">
                             orders
-                        </span> 
+                        </span>
                         <div class="title">My Orders</div>
                     </div>
                     <div class="wishlist profile-option">
-                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                        <span class="material-symbols-outlined"
+                            style="color: #878787; font-size: 12px; display: flex; align-items: center;">
                             favorite
-                        </span> 
+                        </span>
                         <div class="title">My Wishlist</div>
                     </div>
                 </div>
             </div>
             <div class="cart">
-                <button mat-icon-button class="search-icon" aria-label="Example icon-button with share icon">
-                    <span class="material-symbols-outlined "  style="color: white;">
+                <button mat-icon-button class="search-icon" aria-label="Example icon-button with share icon"
+                    [routerLink]="['/home/cart']">
+                    <span class="material-symbols-outlined " style="color: white;">
                         shopping_cart
-                    </span>                
-                    </button>
+                    </span>
+                </button>
                 <span class="caption">Cart</span>
-                <div *ngIf="count > 0" class="count">{{ count }}</div>            </div>
+                <div *ngIf="count > 0" class="count">{{ count }}</div>
+            </div>
         </div>
     </div>
     <div class="display">
         <!-- <app-display-books></app-display-books> -->
-        <router-outlet/>
+        <router-outlet />
     </div>
 </div>

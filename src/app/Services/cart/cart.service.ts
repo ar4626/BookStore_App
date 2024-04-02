@@ -43,4 +43,14 @@ export class CartService {
     }
     return this.httpService.postServiceReset('https://localhost:44362/api/Cart/AddToCart?bookId='+bookId,"",true,header);
   }
+
+  getCartCount(){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getServiceToken('https://localhost:44362/api/Cart/GetCartCount',true,header);
+  }
 }
