@@ -1,1 +1,92 @@
-<p>book-view works!</p>
+<div class="main">
+    <div class="header">
+        <div class="home">Home / </div>
+        <div class="book-title">Book</div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="image">
+                <img src={{book.book_image}} alt="">
+            </div>
+            <div class="btn">
+                <button style="background-color: #A03037;">
+                    NOTIFY ME
+                </button>
+                <button style="background-color: #333333;">
+                    <span class="material-symbols-outlined">
+                        favorite
+                    </span>
+                    &nbsp;
+                    WISHLIST
+                </button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="details">
+                <div class="title">
+                    {{book.bookName}}
+                </div>
+                <div class="author">
+                    by {{book.author}}
+                </div>
+                <div class="rating">
+                    {{book.rating}}
+                    <span class="material-symbols-outlined md-light">star</span>
+                </div>
+                <div class="price">
+                    <span class="discount">
+                        Rs {{book.discount_price}}
+                    </span>
+                    <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
+                        Rs {{book.book_price}}
+                    </span>
+                </div>
+            </div>
+            <hr />
+            <div class="desc">
+                <div class="head">
+                    Book Details
+                </div>
+                <div class="description">
+                    {{book.description}}
+                </div>
+            </div>
+            <hr />
+            <div class="feedback">
+                <div class="feedback-heading">
+                    Customer Feedback
+                </div>
+                <div class="feedback-menu">
+                    <h2>Overall rating</h2>
+                    <div class="star">
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                    </div>
+                    <div class="textarea">
+                        <p>
+                            Write Your Review
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://res-console.cloudinary.com/dxycwp9mh/media_explorer_thumbnails/c6476845bbd8afe5d06b41373277ac09/detailed"
+                    alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
