@@ -23,7 +23,7 @@
                 <div *ngFor="let cartItem of cartItems">
                     <div class="book">
                         <div class="image">
-                            <img src="{{bookDetails[cartItem.bookId]?.book_image}}" alt="">
+                            <img src={{bookDetails[cartItem.bookId]?.image}} alt="">
                         </div>
                         <div class="bookDetails">
                             <h3>{{bookDetails[cartItem.bookId]?.bookName}}</h3>
