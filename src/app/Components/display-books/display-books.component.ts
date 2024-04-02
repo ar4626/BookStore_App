@@ -222,7 +222,9 @@ export class DisplayBooksComponent {
 
   constructor(
     private bookService: BookService,
-  ){}
+  ){
+    
+  }
 
 
   shiftActive(direction: string) {
@@ -262,10 +264,49 @@ export class DisplayBooksComponent {
     this.display();
   }
 
+  sortByLowToHighPrice(): void {
+    console.log("Function")
+    this.books = this.books.sort((a: any, b: any) => a.book_price - b.book_price);
+    this.display();
+  }
+
+  sortByHighToLowPrice(): void {
+    this.books.sort((a: any, b: any) => b.book_price - a.book_price);
+    
+  }
+
+  sortByCreationDate(): void {
+    this.books.sort((a: any, b: any) => {
+      const dateA = new Date(a.createdAt);
+      const dateB = new Date(b.createdAt);
+      return dateB.getTime() - dateA.getTime();
+    });
+  }
+
+  sortBooks(sortOption: string) {
+    switch (sortOption) {
+      case 'lowToHigh':
+        this.books = this.books.slice().sort((a:any, b:any) => a.discount - b.discount);
+        break;
+      case 'highToLow':
+        this.books = this.books.slice().sort((a:any, b:any) => b.discount - a.discount);
+        break;
+      case 'newestArrival':
+        this.books = this.books.slice().sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        break;
+      default:
+        // No sorting selected or invalid option, just use the original order
+        this.books = [...this.books];
+        break;
+    }
+    console.log("sorted",this.books);
+  }
+ 
   display(): any{
     this.bookService.getAllBooks().subscribe(
       (response:any)=>{
         this.books = response.data;
+        this.count = this.books.length;
         console.log(response.data);
         console.log("Books Fetched successfuliy");
       },

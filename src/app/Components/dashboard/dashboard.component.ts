@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { DisplayBooksComponent } from '../display-books/display-books.component';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
@@ -21,11 +21,22 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  name : string = 'Ankit';
-  profileMenu : boolean = true;
-  count : any = 1;
+  name: string = 'Ankit';
+  profileMenu: boolean = true;
+  profileMenuSignin: boolean = true;
+  count: any = 1;
+  token: any;
+
+  constructor() {
+    this.token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : "";
+  }
 
   toggleProfileMenu(): void {
-    this.profileMenu = !this.profileMenu;
-}
-}
+    if (this.token) {
+      this.profileMenu = !this.profileMenu;
+    }
+    else {
+      this.profileMenuSignin = !this.profileMenuSignin
+    }
+  }
+} 

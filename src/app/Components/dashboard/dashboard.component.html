@@ -26,7 +26,7 @@
                 <span class="caption">Profile</span>
                 <div class="dash" [style.display]="profileMenu ? 'none' : 'flex'">
                 </div>
-                <div class="profile-menu" [class.fade-in]="profileMenu" [style.display]="profileMenu ? 'none' : 'flex'">
+                <div class="profile-menu" [style.display]="profileMenu ? 'none' : 'flex'">
                     <div class="profile-name">
                         Hello {{name}},
                     </div>
@@ -50,7 +50,31 @@
                     </div>
                     <button class="logout-btn">Logout</button>
                 </div>
- 
+                <div class="profile-menu" [style.display]="profileMenuSignin ? 'none' : 'flex'">
+                    <div class="profile-name">
+                        Welcome
+                    </div>
+                    <div class="user profile-option">
+                        <!-- <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                            person
+                        </span>  -->
+                        <div style="margin: 0;" class="title">To acsess account and manage orders</div>
+                    </div>
+                    <button class="logout-btn">LOGIN/SIGNUP</button>
+                    <hr style="width: 100%;">
+                    <div class="order profile-option">
+                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                            orders
+                        </span> 
+                        <div class="title">My Orders</div>
+                    </div>
+                    <div class="wishlist profile-option">
+                        <span class="material-symbols-outlined" style="color: #878787; font-size: 12px; display: flex; align-items: center;">
+                            favorite
+                        </span> 
+                        <div class="title">My Wishlist</div>
+                    </div>
+                </div>
             </div>
             <div class="cart">
                 <button mat-icon-button class="search-icon" aria-label="Example icon-button with share icon">

@@ -5,12 +5,13 @@
             <p>({{count}} items)</p>
         </div>
         <div class="dropmenu">
-            <select aria-placeholder="Sort by relevance">
-                <option class="menu-option" value="" disabled selected>Sort by preference</option>
+            <select aria-placeholder="Sort by relevance" #sortSelect (change)="sortBooks(sortSelect.value)">
+                <option value="" disabled selected>Sort by preference</option>
                 <option value="lowToHigh">Price: Low to High</option>
                 <option value="highToLow">Price: High to Low</option>
                 <option value="newestArrival">Newest Arrival</option>
             </select>
+            
         </div>
     </div>
     <div class="display">
