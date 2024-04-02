@@ -55,7 +55,7 @@
 
 .dropmenu>select {
     padding: 8px 16px;
-    border-radius: 0; 
+    border-radius: 0;
     border: none;
     background-color: #fff;
     font-size: 14px;
@@ -93,7 +93,7 @@ option:before {
 }
 
 
-.display{
+.display {
     // background-color: tan;
     // width: 100%;
     display: flex;
@@ -101,4 +101,70 @@ option:before {
     justify-content: space-between;
     // margin: 0px -14px;
     box-sizing: border-box;
+}
+
+.pagenation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: wheat;
+    // border: 1px solid black;
+    padding: 50px 0px;
+}
+
+.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    background-color: white;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E2E2E2;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.inactive {
+    color: #E2E2E2;
+}
+
+.number {
+    height: 37px;
+    width: 37px;
+    border-radius: 1px;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-active {
+    background: #8F2B2F 0% 0% no-repeat padding-box;
+    color: white;
+}
+
+.footer {
+    height: 50px;
+    background: #2E1D1E 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer>p{
+    color: white;
+    margin: 0;
+    margin-left: 11%;
+    font-size: 12px;
 }
