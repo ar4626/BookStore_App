@@ -23,4 +23,14 @@ export class CartService {
     }
     return this.httpService.getServiceToken('https://localhost:44362/api/Cart/GetCartItems',true,header);
   }
+
+  removeCartItem(cartId:any){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.deleteService('https://localhost:44362/api/Cart/DeleteCartItem?cartId='+cartId,true,header);
+  }
 }

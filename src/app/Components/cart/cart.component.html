@@ -44,7 +44,7 @@
                             <div class="box">{{ cartItem.quantity }}</div>
                             <button (click)="increment()">+</button>
                         </div>
-                        <button class="remove">Remove</button>
+                        <button class="remove" (click)="deleteCartByCartId(cartItem.cartId)">Remove</button>
                     </div>
                 </div>
             </div>
@@ -204,7 +204,11 @@
                     </div>
                 </div>
             </div>
-            <div class="placeOrder" style="height: 35px;">
+            <hr >
+            <div class="placeOrder" style="height: 35px; justify-content: space-between;">
+                <h1 style="font-size: 20px;
+                font-weight: 600;
+                margin-right: 1%;">Total {{totalPrice}}</h1>
                 <button>CHECKOUT</button>
             </div>
         </ng-template>

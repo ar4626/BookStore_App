@@ -65,13 +65,6 @@ export class CartComponent {
     );
   }
 
-
-  // if (this.book && this.book.author.length > 23) {
-  //   this.author = this.book.author.substring(0, 23) + "...";
-  // } else if (this.book) {
-  //   this.author = this.book.author;
-  // }
-
   fetchBookDetails(): void {
     for (const cartItem of this.cartItems) {
       this.bookService.getABook(cartItem.bookId).subscribe(
@@ -79,8 +72,8 @@ export class CartComponent {
           this.bookDetails[cartItem.bookId] = response.data;
 
           //resizing the book name
-          if (this.bookDetails[cartItem.bookId].bookName.length > 22) {
-            this.bookDetails[cartItem.bookId].bookName = this.bookDetails[cartItem.bookId].bookName.substring(0, 22) + "...";
+          if (this.bookDetails[cartItem.bookId].bookName.length > 20) {
+            this.bookDetails[cartItem.bookId].bookName = this.bookDetails[cartItem.bookId].bookName.substring(0, 20) + "...";
           } else if (this.bookDetails[cartItem.bookId]) {
             this.bookDetails[cartItem.bookId].bookName = this.bookDetails[cartItem.bookId].bookName
           }
@@ -107,5 +100,17 @@ export class CartComponent {
     for (const cartItem of this.cartItems) {
       this.totalPrice += cartItem.price;
     }
+  }
+
+  deleteCartByCartId(cartId: any): void {
+    this.cartService.removeCartItem(cartId).subscribe(
+      (response: any) => {
+        console.log(response.message);
+        this.displayAllCart();
+      },
+      (error: any) => {
+        console.log('Failed to delete', error);
+      }
+    )
   }
 }
