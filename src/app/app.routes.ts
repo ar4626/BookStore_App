@@ -37,7 +37,7 @@ export const routes: Routes = [
                 path: 'books', component: DisplayBooksComponent
             },
             {
-                path: 'book', component: BookViewComponent
+                path: 'book/:id', component: BookViewComponent
             },
             
         ]
