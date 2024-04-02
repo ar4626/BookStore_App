@@ -6,7 +6,7 @@
     <div class="container">
         <div class="cart">
             <div class="head">
-                <h1>My Cart ({{count}})</h1>
+                <h1>My Cart ({{cartItems.length}})</h1>
                 <div class="address-box">
                     <div>
                         <span class="material-symbols-outlined" style="color:#A03037 ;">
@@ -20,20 +20,20 @@
                 </div>
             </div>
             <div class="details">
-                <div *ngFor="let book of books">
+                <div *ngFor="let cartItem of cartItems">
                     <div class="book">
                         <div class="image">
-                            <img src="{{book.book_image}}" alt="">
+                            <img src="{{bookDetails[cartItem.bookId]?.book_image}}" alt="">
                         </div>
                         <div class="bookDetails">
-                            <h3>{{book.bookName}}</h3>
-                            <p>by {{book.author}}</p>
+                            <h3>{{bookDetails[cartItem.bookId]?.bookName}}</h3>
+                            <p>by {{bookDetails[cartItem.bookId]?.author}}</p>
                             <div class="price">
                                 <span class="discount">
-                                    Rs {{book.discount_price}}
+                                    Rs {{bookDetails[cartItem.bookId]?.discount}}
                                 </span>
                                 <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
-                                    Rs {{book.book_price}}
+                                    Rs {{bookDetails[cartItem.bookId]?.amount}}
                                 </span>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                     <div class="cart-count">
                         <div class="count">
                             <button (click)="decrement()">-</button>
-                            <div class="box">{{ quantity }}</div>
+                            <div class="box">{{ cartItem.quantity }}</div>
                             <button (click)="increment()">+</button>
                         </div>
                         <button class="remove">Remove</button>
@@ -184,17 +184,17 @@
         <ng-template #orderSummery>
             <div class="order-summery" >
                 <h1>Order Summery</h1>
-                <div *ngFor="let book of books">
+                <div *ngFor="let cartItem of cartItems">
                     <div class="book">
                         <div class="image">
-                            <img src="{{book.book_image}}" alt="">
+                            <img src={{bookDetails[cartItem.bookId]?.image}} alt="">
                         </div>
                         <div class="bookDetails">
-                            <h3>{{book.bookName}}</h3>
-                            <p>by {{book.author}}</p>
+                            <h3>{{bookDetails[cartItem.bookId]?.bookName}}</h3>
+                            <p>by {{bookDetails[cartItem.bookId]?.author}}</p>
                             <div class="price">
                                 <span class="discount">
-                                    Rs {{book.discount_price}}
+                                    Rs {{cartItem.price}}
                                 </span>
                                 <!-- <span class="actual" [ngStyle]="{'text-decoration': 'line-through'}">
                                     Rs {{book.book_price}}
