@@ -1,0 +1,46 @@
+<div class="main">
+    <div class="header">
+        <div class="details">
+            <h2>Books</h2>
+            <p>({{count}} items)</p>
+        </div>
+        <div class="dropmenu">
+            <select aria-placeholder="Sort by relevance">
+                <option class="menu-option" value="" disabled selected>Sort by preference</option>
+                <option value="lowToHigh">Price: Low to High</option>
+                <option value="highToLow">Price: High to Low</option>
+                <option value="newestArrival">Newest Arrival</option>
+            </select>
+        </div>
+    </div>
+    <div class="display">
+        <ng-container *ngFor="let book of books.slice(start,end)">
+            <app-book-card [book]="book"></app-book-card>
+        </ng-container>
+    </div>
+    <div class="pagenation">
+        <div class="page">
+            <button class="arrow" (click)="shiftActive('prev')">
+                <span class="material-symbols-outlined " [class.inactive]="activePageNumber==1" style="font-size: 10px; font-weight: 500;">
+                    arrow_back_ios
+                </span>
+            </button>
+            <div class="number" [class.number-active]="activePageNumber === 1">1</div>
+            <div class="number" [class.number-active]="activePageNumber === 2">2</div>
+            <div class="number" [class.number-active]="activePageNumber === 3">3</div>
+            <div class="number" [class.number-active]="activePageNumber === 4">4</div>
+            <div class="number" [class.number-active]="activePageNumber === 5">5</div>
+            <div class="number" [class.number-active]="activePageNumber === 6">6</div>
+            <div class="number">...</div>
+            <div class="number">10</div>
+            <button class="arrow" (click)="shiftActive('next')">
+                <span class="material-symbols-outlined " style="font-size: 10px; font-weight: 500;">
+                    arrow_forward_ios
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>Copyright © 2020, Bookstore Private Limited. All Rights Reserved</p>
+</div>
