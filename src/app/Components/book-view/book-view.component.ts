@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BookService } from '../../Services/book/book.service';
 import { error } from 'console';
+import { CartService } from '../../Services/cart/cart.service';
 
 @Component({
   selector: 'app-book-view',
@@ -34,7 +35,8 @@ export class BookViewComponent {
 
   constructor(
     private bookService: BookService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private cartService: CartService,
   ){
     this.bookId = this.activeRoute.snapshot.paramMap.get('id');
   }
@@ -52,6 +54,17 @@ export class BookViewComponent {
         this.book = response.data;
         console.log(response.data);
       },(error:any) => {
+        console.log('Request Failed', error);
+      }
+    )
+  }
+
+  addToCart(): any{
+    this.cartService.addToCart(this.bookId).subscribe(
+      (response: any) =>{
+        console.log("Added to Cart",response.data);
+      } ,
+      (error: any) => {
         console.log('Request Failed', error);
       }
     )

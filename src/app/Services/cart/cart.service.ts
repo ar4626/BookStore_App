@@ -33,4 +33,14 @@ export class CartService {
     }
     return this.httpService.deleteService('https://localhost:44362/api/Cart/DeleteCartItem?cartId='+cartId,true,header);
   }
+
+  addToCart(bookId:any){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.postServiceReset('https://localhost:44362/api/Cart/AddToCart?bookId='+bookId,"",true,header);
+  }
 }
