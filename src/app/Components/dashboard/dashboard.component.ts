@@ -22,7 +22,7 @@ import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router'
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  name: string = 'Ankit';
+  name: any ;
   profileMenu: boolean = true;
   profileMenuSignin: boolean = true;
   count: any = 1;
@@ -30,6 +30,7 @@ export class DashboardComponent {
 
   constructor() {
     this.token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : "";
+    this.name = typeof localStorage !== 'undefined' ? localStorage.getItem('name') : "";
   }
 
   toggleProfileMenu(): void {

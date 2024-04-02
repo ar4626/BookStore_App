@@ -23,7 +23,7 @@
                         person
                     </span> 
                 </button>
-                <span class="caption">Profile</span>
+                <span class="caption">{{ name === null ? 'Profile' : name }}</span>
                 <div class="dash" [style.display]="profileMenu ? 'none' : 'flex'">
                 </div>
                 <div class="profile-menu" [style.display]="profileMenu ? 'none' : 'flex'">
