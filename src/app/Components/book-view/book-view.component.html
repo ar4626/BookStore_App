@@ -16,7 +16,11 @@
                     </button>
                 </ng-template>
                 <ng-template #updateCart>
-                    
+                    <div class="count">
+                        <button (click)="updateCartQuantity(bookId, quantity-1)">-</button>
+                        <div class="box">{{ quantity }}</div>
+                        <button (click)="updateCartQuantity(bookId, quantity+1)">+</button>
+                    </div>
                 </ng-template>
                 <button style="background-color: #333333;">
                     <span class="material-symbols-outlined">

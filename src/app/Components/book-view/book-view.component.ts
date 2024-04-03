@@ -4,9 +4,11 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BookService } from '../../Services/book/book.service';
 import { error } from 'console';
 import { CartService } from '../../Services/cart/cart.service';
+import { response } from 'express';
 
 interface CartItem {
   bookId: number; 
+  quantity: number;
 }
 
 @Component({
@@ -37,6 +39,8 @@ export class BookViewComponent {
   bookId: any;
   book:any={};
   carts:any=[];
+  cart:any;
+  quantity: any;
 
   constructor(
     private bookService: BookService,
@@ -49,19 +53,26 @@ export class BookViewComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    this.checkBookInCart(this.bookId);
     this.getBook();
+  }
 
-    if (this.carts.find((a: CartItem) => a.bookId === this.bookId)) {
-      this.displayAddCart = false;
-    }
+  checkBookInCart(bookId: number):any{
+    this.cartService.checkBookInCart(bookId).subscribe(
+      (response:any)=>{
+        this.cart=response.data;
+        this.displayAddCart = false;
+        this.quantity=response.data.quantity;
+        console.log("cart me already hai ", this.cart)
+      }
+    )
   }
 
   getBook(): any{
-    console.log("getBook Called");
     this.bookService.getABook(this.bookId).subscribe(
       (response: any) => {
         this.book = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       },(error:any) => {
         console.log('Request Failed', error);
       }
@@ -87,6 +98,18 @@ export class BookViewComponent {
       } ,
       (error: any) => {
         console.log('Request Failed', error);
+      }
+    )
+  }
+
+  updateCartQuantity(bookId: any, quantity: any): void {
+    this.cartService.updateCartQuantity(bookId, quantity).subscribe(
+      (response: any) => {
+        console.log("Cart Quantity Updated " + response.data);
+        this.checkBookInCart(bookId);
+      },
+      (error: any) => {
+        console.log('Failed to update quantity', error);
       }
     )
   }

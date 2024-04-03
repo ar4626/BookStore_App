@@ -85,6 +85,34 @@
     justify-content: center;
 }
 
+.count {
+    display: flex;
+}
+
+.count>button {
+    height: 38px;
+    width: 38px;
+    font-size: 24px;
+    border-radius: 50%;
+    border: none;
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    border: 1px solid #DBDBDB;
+    cursor: pointer;
+}
+
+.box {
+    height: 38px;
+    width: 55px;
+    border: 1px solid #DBDBDB;
+    border-radius: 1px;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 8px;
+}
+
+
 .right {
     width: 65%;
     height: 80vh;

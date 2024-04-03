@@ -63,4 +63,14 @@ export class CartService {
     }
     return this.httpService.putService('https://localhost:44362/api/Cart/UpdateQuantity?bookId='+bookId+'&quantity='+quantity,"",true,header);
   }
+
+  checkBookInCart(bookId: any){
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.getService('https://localhost:44362/api/Cart/CheckBookInCart?bookId='+bookId,true,header);
+  }
 }
