@@ -34,6 +34,7 @@ export class DashboardComponent {
   ) {
     this.token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : "";
     this.name = typeof localStorage !== 'undefined' ? localStorage.getItem('name') : "";
+    this.getCartCount();
   }
 
   toggleProfileMenu(): void {

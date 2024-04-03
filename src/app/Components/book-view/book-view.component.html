@@ -9,9 +9,15 @@
                 <img src={{book.image}} alt="">
             </div>
             <div class="btn">
-                <button style="background-color: #A03037;" (click)="addToCart()">
-                    ADD TO BAG
-                </button>
+                <div *ngIf="displayAddCart; then addCart else updateCart"></div>
+                <ng-template #addCart>
+                    <button style="background-color: #A03037;" (click)="addToCart()">
+                        ADD TO BAG
+                    </button>
+                </ng-template>
+                <ng-template #updateCart>
+                    
+                </ng-template>
                 <button style="background-color: #333333;">
                     <span class="material-symbols-outlined">
                         favorite

@@ -55,7 +55,7 @@ export class CartComponent {
     this.cartService.getAllCartItem().subscribe(
       (response: any) => {
         this.cartItems = response.data;
-        console.log(this.cartItems)
+        // console.log(this.cartItems)
         this.calculateTotalPrice();
         this.fetchBookDetails();
       },
@@ -86,7 +86,7 @@ export class CartComponent {
           }
 
 
-          console.log(this.bookDetails[cartItem.bookId])
+          // console.log(this.bookDetails[cartItem.bookId])
         },
         (error: any) => {
           console.log('Failed to fetch book details for Book ID:', cartItem.bookId, error);
@@ -110,6 +110,18 @@ export class CartComponent {
       },
       (error: any) => {
         console.log('Failed to delete', error);
+      }
+    )
+  }
+
+  updateCartQuantity(bookId: any, quantity: any): void {
+    this.cartService.updateCartQuantity(bookId, quantity).subscribe(
+      (response: any) => {
+        console.log("Cart Quantity Updated " + response.data);
+        this.displayAllCart();
+      },
+      (error: any) => {
+        console.log('Failed to update quantity', error);
       }
     )
   }

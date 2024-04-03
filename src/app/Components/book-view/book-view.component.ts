@@ -5,6 +5,10 @@ import { BookService } from '../../Services/book/book.service';
 import { error } from 'console';
 import { CartService } from '../../Services/cart/cart.service';
 
+interface CartItem {
+  bookId: number; 
+}
+
 @Component({
   selector: 'app-book-view',
   standalone: true,
@@ -29,9 +33,10 @@ export class BookViewComponent {
   //   "createdAt": "31-Mar-2024 17:03",
   //   "lastUpdatedAt": "31-Mar-2024 17:03"
   // };
-
+  displayAddCart: boolean=true;
   bookId: any;
   book:any={};
+  carts:any=[];
 
   constructor(
     private bookService: BookService,
@@ -45,6 +50,10 @@ export class BookViewComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.getBook();
+
+    if (this.carts.find((a: CartItem) => a.bookId === this.bookId)) {
+      this.displayAddCart = false;
+    }
   }
 
   getBook(): any{
@@ -69,5 +78,19 @@ export class BookViewComponent {
       }
     )
   }
+
+  getCartItems(): any{
+    this.cartService.getAllCartItem().subscribe(
+      (response: any) =>{
+        this.carts = response.data;
+        console.log("Cart Fetched",response.data);
+      } ,
+      (error: any) => {
+        console.log('Request Failed', error);
+      }
+    )
+  }
+
+
 }
  

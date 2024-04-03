@@ -40,9 +40,9 @@
                     </div>
                     <div class="cart-count">
                         <div class="count">
-                            <button (click)="decrement()">-</button>
+                            <button (click)="updateCartQuantity(cartItem.bookId, cartItem.quantity-1)">-</button>
                             <div class="box">{{ cartItem.quantity }}</div>
-                            <button (click)="increment()">+</button>
+                            <button (click)="updateCartQuantity(cartItem.bookId, cartItem.quantity+1)">+</button>
                         </div>
                         <button class="remove" (click)="deleteCartByCartId(cartItem.cartId)">Remove</button>
                     </div>
