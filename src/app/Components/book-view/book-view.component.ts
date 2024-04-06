@@ -83,6 +83,7 @@ export class BookViewComponent {
     this.cartService.addToCart(this.bookId).subscribe(
       (response: any) =>{
         console.log("Added to Cart",response.data);
+        this.checkBookInCart(this.bookId);
       } ,
       (error: any) => {
         console.log('Request Failed', error);

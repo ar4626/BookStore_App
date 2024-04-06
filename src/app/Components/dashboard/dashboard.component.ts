@@ -30,7 +30,8 @@ export class DashboardComponent {
   token: any;
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private router : Router
   ) {
     this.token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : "";
     this.name = typeof localStorage !== 'undefined' ? localStorage.getItem('name') : "";
@@ -55,6 +56,7 @@ export class DashboardComponent {
   deleteToken(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
+    this.router.navigateByUrl('/home');
   }
 
   getCartCount(): void{

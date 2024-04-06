@@ -51,7 +51,7 @@
                         </span>
                         <div class="title">My Wishlist</div>
                     </div>
-                    <button class="logout-btn" (click)="deleteToken()">Logout</button>
+                    <button class="logout-btn" (click)="deleteToken()" [routerLink]="['/home']">Logout</button>
                 </div>
                 <div class="profile-menu" [style.display]="profileMenuSignin ? 'none' : 'flex'">
                     <div class="profile-name">
